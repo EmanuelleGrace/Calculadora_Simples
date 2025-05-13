@@ -1,7 +1,7 @@
 # Calculadora_Simples
 
 
-🧮 Calculadora Simples Uma calculadora básica desenvolvida com HTML, CSS e JavaScript. Permite realizar operações matemáticas simples como adição, subtração, multiplicação, divisão e calculo de porcentagem. Ideal para estudos, testes e como projeto introdutório de front-end.  
+🧮 Uma calculadora básica desenvolvida com HTML, CSS e JavaScript. Permite realizar operações matemáticas simples como adição, subtração, multiplicação, divisão e calculo de porcentagem. Ideal para estudos, testes e como projeto introdutório de front-end.  
 
 
 ✨ Funcionalidades: Interface simples e responsiva  Operações básicas: +, −, ×, ÷, %  Botão "AC" para limpar tudo  Suporte ao ponto decimal  Estilo visual leve e personalizável  
