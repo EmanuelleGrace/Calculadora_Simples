@@ -11,6 +11,7 @@
 
 
 💡 Como usar:
+
 -- 1 Clone o repositório:
 
 git clone https://github.com/EmanuelleGrace/Calculadora_Simples.git
