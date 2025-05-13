@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  #calculadora {
+    width: 200px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 0px 5px 2px rgba(0, 0, 0, 0, 0.1);
+  }
+  
+  #display {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #000000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+    background-color: #e3e3e3;
+  }
+
+  
+  
+  #displayInput {
+    text-align: right;
+    width: 100%;
+    border: none;
+  }
+  
+  #teclado {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+ 
+  
+  button {
+    height: 60px;
+    border: none;
+    font-size: 2em;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ccc6c6;
+  }
+  
+  button:active {
+    background-color: #5a5a5a;
+  }
+  
+  button.num,
+  button.ponto {
+    color: #333;
+  }
+  
+  button.operador {
+    color: #f7931b;
+  }
+
+
+  button.porcentagem {
+    color: #f7931b;
+  }
+
+    .limpa {
+    grid-column: span 3;
+    border: none;
+    text-align: center;
+    font-size: 2em;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
