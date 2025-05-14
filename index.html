@@ -1,38 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcuadora</title>
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="script.js" defer></script>
-
 </head>
 <body>
-    <div id="Calcuadora">
-        <div id="display">
-          <input type="text" id="displayInput" disabled />
+    <div class="container">
+        <div id="Calcuadora">
+            <div id="display">
+                <!-- O histórico será inserido aqui via JavaScript -->
+                <input type="text" id="displayInput" disabled />
+            </div>
+            <div id="teclado">
+                <button class="limpa" title="Limpar tudo">AC</button>
+                <button class="operador" title="Porcentagem">%</button>
+                <button class="num" title="Sete">7</button>
+                <button class="num" title="Oito">8</button>
+                <button class="num" title="Nove">9</button>
+                <button class="operador" title="Dividir">/</button>
+                <button class="num" title="Quatro">4</button>
+                <button class="num" title="Cinco">5</button>
+                <button class="num" title="Seis">6</button>
+                <button class="operador" title="Multiplicar">*</button>
+                <button class="num" title="Um">1</button>
+                <button class="num" title="Dois">2</button>
+                <button class="num" title="Três">3</button>
+                <button class="operador" title="Subtrair">-</button>
+                <button class="num" title="Zero">0</button>
+                <button class="ponto" title="Ponto decimal">.</button>
+                <button class="igual" title="Igual">=</button>
+                <button class="operador" title="Somar">+</button>
+            </div>
+        </div>
+        
+        <div id="historico-container" class="historico-container">
+            <div class="historico-header">
+                <h3>Histórico</h3>
+                <button id="limpar-historico" title="Limpar histórico">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div id="historico-lista" class="historico-lista">
+                <!-- Itens do histórico serão inseridos aqui via JavaScript -->
+            </div>
+        </div>
     </div>
-    <div id="teclado">
-        <button class="limpa">AC</button>
-        <button class="operador">%</button>
-        <button class="num">7</button>
-        <button class="num">8</button>
-        <button class="num">9</button>
-        <button class="operador">/</button>
-        <button class="num">4</button>
-        <button class="num">5</button>
-        <button class="num">6</button>
-        <button class="operador">*</button>
-        <button class="num">1</button>
-        <button class="num">2</button>
-        <button class="num">3</button>
-        <button class="operador">-</button>
-        <button class="num">0</button>
-        <button class="ponto">.</button>
-        <button class="igual">=</button>
-        <button class="operador">+</button>
-      </div>
-    </div>
-  </body>
+    
+    <footer>
+        <p>Calculadora Simples - Desenvolvida com pela EmanuelleGrace e aprimorada por DevMendes21 ❤️</p>
+    </footer>
+</body>
 </html>

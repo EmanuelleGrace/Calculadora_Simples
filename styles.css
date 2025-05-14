@@ -1,81 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  #calculadora {
-    width: 200px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 0px 5px 2px rgba(0, 0, 0, 0, 0.1);
-  }
-  
-  #display {
-    width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #000000;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 0 10px;
-    box-sizing: border-box;
-    background-color: #e3e3e3;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0;
+}
 
-  
-  
-  #displayInput {
-    text-align: right;
-    width: 100%;
-    border: none;
-  }
-  
-  #teclado {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
+#Calcuadora {
+  width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
 
- 
+#Calcuadora:hover {
+  transform: translateY(-5px);
+}
+
+#display {
+  width: 100%;
+  padding: 30px 20px 10px;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+#displayHistorico {
+  width: 100%;
+  text-align: right;
+  color: #6c757d;
+  font-size: 14px;
+  height: 20px;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+#displayInput {
+  width: 100%;
+  text-align: right;
+  font-size: 2.5em;
+  font-weight: 300;
+  color: #343a40;
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 5px 0;
+}
+
+#displayInput.limpo {
+  animation: flash 0.15s;
+}
+
+@keyframes flash {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(108, 117, 125, 0.2); }
+  100% { background-color: transparent; }
+}
+
+#teclado {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background-color: #e9ecef;
+  padding: 1px;
+}
+
+button {
+  height: 70px;
+  border: none;
+  font-size: 1.5em;
+  background-color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+button.ativo::after {
+  animation: ripple 0.4s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+button:hover {
+  background-color: #f1f3f5;
+}
+
+button:active {
+  background-color: #e9ecef;
+  transform: scale(0.98);
+}
+
+button.num,
+button.ponto {
+  color: #343a40;
+  font-weight: 500;
+}
+
+button.operador {
+  color: #007bff;
+  font-weight: 700;
+}
+
+button.igual {
+  background-color: #007bff;
+  color: white;
+  font-weight: 700;
+}
+
+button.igual:hover {
+  background-color: #0069d9;
+}
+
+button.limpa {
+  grid-column: span 3;
+  color: #dc3545;
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.historico-container {
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+}
+
+.historico-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.historico-header h3 {
+  margin: 0;
+  color: #343a40;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+#limpar-historico {
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 5px;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+#limpar-historico:hover {
+  transform: scale(1.1);
+}
+
+.historico-lista {
+  padding: 10px 15px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.historico-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.historico-item:hover {
+  background-color: #f1f3f5;
+}
+
+.historico-operacao {
+  color: #6c757d;
+  font-size: 0.9em;
+  margin-bottom: 3px;
+}
+
+.historico-resultado {
+  color: #343a40;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  font-size: 0.9em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  #Calcuadora {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .historico-container {
+    width: 100%;
+    max-width: 320px;
+    margin-top: 20px;
+    max-height: 300px;
+  }
   
   button {
     height: 60px;
-    border: none;
+    font-size: 1.3em;
+  }
+  
+  #displayInput {
     font-size: 2em;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
   }
-  
-  button:hover {
-    background-color: #ccc6c6;
-  }
-  
-  button:active {
-    background-color: #5a5a5a;
-  }
-  
-  button.num,
-  button.ponto {
-    color: #333;
-  }
-  
-  button.operador {
-    color: #f7931b;
-  }
-
-
-  button.porcentagem {
-    color: #f7931b;
-  }
-
-    .limpa {
-    grid-column: span 3;
-    border: none;
-    text-align: center;
-    font-size: 2em;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-  }
+}
